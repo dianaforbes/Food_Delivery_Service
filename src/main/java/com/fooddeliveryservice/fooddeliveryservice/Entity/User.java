@@ -1,8 +1,13 @@
 package com.fooddeliveryservice.fooddeliveryservice.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Date;
-
+@Entity
 public class User {
+    @Id
+    @GeneratedValue
     private User user;
     private String firstName;
     private String lastName;
