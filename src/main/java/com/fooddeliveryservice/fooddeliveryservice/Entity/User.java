@@ -2,12 +2,15 @@ package com.fooddeliveryservice.fooddeliveryservice.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Date;
-@Entity
+
+@Entity(name="user")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private User user;
     private String firstName;
     private String lastName;
@@ -133,5 +136,13 @@ public class User {
                 ", lastOrder=" + lastOrder +
                 ", subscriptionId=" + subscriptionId +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
