@@ -1,12 +1,11 @@
-package com.fooddeliveryservice.fooddeliveryservice.Service;
+package com.fooddeliveryservice.Service;
 
-import com.fooddeliveryservice.fooddeliveryservice.Entity.User;
-import com.fooddeliveryservice.fooddeliveryservice.Repository.UserRepository;
+import com.fooddeliveryservice.Entity.User;
+import com.fooddeliveryservice.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Service
 public class UserService implements IUserService {

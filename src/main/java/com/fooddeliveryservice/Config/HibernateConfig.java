@@ -1,4 +1,4 @@
-package com.fooddeliveryservice.fooddeliveryservice.Config;
+package com.fooddeliveryservice.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;

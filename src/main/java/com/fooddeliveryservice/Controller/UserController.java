@@ -1,20 +1,17 @@
-package com.fooddeliveryservice.fooddeliveryservice.Controller;
+package com.fooddeliveryservice.Controller;
 
-import com.fooddeliveryservice.fooddeliveryservice.Entity.User;
-import com.fooddeliveryservice.fooddeliveryservice.Service.IUserService;
+import com.fooddeliveryservice.Entity.User;
+import com.fooddeliveryservice.Service.IUserService;
 import com.github.openjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-@RestController("/api")
-
+@RestController
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -63,6 +60,11 @@ public class UserController {
 
                 + " </h1></div>";
 
+    }
+
+    @RequestMapping(value = "/customers/{id}", method = RequestMethod.GET)
+    public User findById(@PathVariable String id) {
+        return iUserService.findById(Integer.valueOf(id));
     }
 
 }

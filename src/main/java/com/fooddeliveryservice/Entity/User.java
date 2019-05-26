@@ -1,36 +1,45 @@
-package com.fooddeliveryservice.fooddeliveryservice.Entity;
+package com.fooddeliveryservice.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
-@Entity(name="user")
+@Entity(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private User user;
+    //    private User user;
     private String firstName;
     private String lastName;
     private String userName;
     private String userPassword;
     private String permission;
-    private int addressId;
+    @OneToOne
+    @JoinColumn(name = "addressId")
+    private Address addressId;
     private String emailAddress;
     private String phoneNumber;
     java.sql.Date lastLogin;
     java.sql.Date lastOrder;
-    private int subscriptionId;
+    @OneToOne
+    @JoinColumn(name = "subscriptionId")
+    private Subscription subscriptionId;
+//    public User getUser() {
+//        return user;
+//    }
 
-    public User getUser() {
-        return user;
+
+    public int getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(int id) {
+        this.id = id;
     }
+
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public String getFirstName() {
         return firstName;
@@ -72,11 +81,11 @@ public class User {
         this.permission = permission;
     }
 
-    public int getAddressId() {
+    public Address getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(int addressId) {
+    public void setAddressId(Address addressId) {
         this.addressId = addressId;
     }
 
@@ -112,18 +121,19 @@ public class User {
         this.lastOrder = lastOrder;
     }
 
-    public int getSubscriptionId() {
+    public Subscription getSubscriptionId() {
         return subscriptionId;
     }
 
-    public void setSubscriptionId(int subscriptionId) {
+    public void setSubscriptionId(Subscription subscriptionId) {
         this.subscriptionId = subscriptionId;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "user=" + user +
+                "id=" + id +
+//                ", user=" + user +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
@@ -136,13 +146,5 @@ public class User {
                 ", lastOrder=" + lastOrder +
                 ", subscriptionId=" + subscriptionId +
                 '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

@@ -1,6 +1,6 @@
-package com.fooddeliveryservice.fooddeliveryservice.Repository;
+package com.fooddeliveryservice.Repository;
 
-import com.fooddeliveryservice.fooddeliveryservice.Entity.User;
+import com.fooddeliveryservice.Entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

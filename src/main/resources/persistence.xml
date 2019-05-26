@@ -8,7 +8,7 @@
         <property name="dataSource"
                   ref="dataSource"/>
         <property name="packagesToScan"
-                  value="com.go2it.edu"/>
+                  value="com.fooddeliveryservice"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
@@ -24,7 +24,7 @@
     <bean id="dataSource"
           class="org.apache.tomcat.dbcp.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/CASH_MANAGEMENT?useSSL=false"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/FOOD_DELIVERY?useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="530601Dia!"/>
     </bean>
