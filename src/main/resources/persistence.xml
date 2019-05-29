@@ -11,7 +11,7 @@
                   value="com.fooddeliveryservice"/>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="show_sql">true</prop>
                 <prop key="format_sql">true</prop>

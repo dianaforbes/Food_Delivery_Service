@@ -9,6 +9,7 @@ public class Subscription {
     private int id;
     private String subscriptionType;
     private int numberOfMealsAllowed;
+    @Column(name="subscriptionFee", columnDefinition="decimal", precision=5, scale=3)
     private double subscriptionFee;
     private String description;
 

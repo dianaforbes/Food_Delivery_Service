@@ -1,7 +1,7 @@
 package com.fooddeliveryservice.Entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity(name = "user")
 public class User {
@@ -14,20 +14,19 @@ public class User {
     private String userName;
     private String userPassword;
     private String permission;
+    @ManyToOne
+    @JoinColumn(name = "roleId")
+    private Role role;
     @OneToOne
     @JoinColumn(name = "addressId")
     private Address addressId;
     private String emailAddress;
     private String phoneNumber;
-    java.sql.Date lastLogin;
-    java.sql.Date lastOrder;
+    private java.sql.Timestamp lastLogin;
+    private java.sql.Timestamp lastOrder;
     @OneToOne
     @JoinColumn(name = "subscriptionId")
     private Subscription subscriptionId;
-//    public User getUser() {
-//        return user;
-//    }
-
 
     public int getId() {
         return id;
@@ -36,10 +35,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
-
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 
     public String getFirstName() {
         return firstName;
@@ -81,6 +76,14 @@ public class User {
         this.permission = permission;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public Address getAddressId() {
         return addressId;
     }
@@ -105,19 +108,19 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getLastLogin() {
+    public Timestamp getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(Date lastLogin) {
+    public void setLastLogin(Timestamp lastLogin) {
         this.lastLogin = lastLogin;
     }
 
-    public Date getLastOrder() {
+    public Timestamp getLastOrder() {
         return lastOrder;
     }
 
-    public void setLastOrder(Date lastOrder) {
+    public void setLastOrder(Timestamp lastOrder) {
         this.lastOrder = lastOrder;
     }
 
@@ -133,12 +136,12 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-//                ", user=" + user +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 ", permission='" + permission + '\'' +
+                ", role=" + role +
                 ", addressId=" + addressId +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

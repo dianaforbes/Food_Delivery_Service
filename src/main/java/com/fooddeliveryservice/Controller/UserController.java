@@ -51,8 +51,8 @@ public class UserController {
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
         java.util.Date date = sdf1.parse(lastLogin);
-        userToService.setLastLogin(new java.sql.Date(date.getTime()));
-        userToService.setLastOrder(new java.sql.Date(date.getTime()));
+        userToService.setLastLogin(new java.sql.Timestamp(date.getTime()));
+        userToService.setLastOrder(new java.sql.Timestamp(date.getTime()));
 
         User savedUser = iUserService.save(userToService);
         String resultMessage = savedUser != null ? "success" : "failure";
