@@ -13,7 +13,6 @@ public class User {
     private String lastName;
     private String userName;
     private String userPassword;
-    private String permission;
     @ManyToOne
     @JoinColumn(name = "roleId")
     private Role role;
@@ -27,6 +26,18 @@ public class User {
     @OneToOne
     @JoinColumn(name = "subscriptionId")
     private Subscription subscriptionId;
+
+    public User(){
+    }
+
+    public User(String firstName, String lastName, String userName, String userPassword, Role role, String emailAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.role = role;
+        this.emailAddress = emailAddress;
+    }
 
     public int getId() {
         return id;
@@ -66,14 +77,6 @@ public class User {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
-    }
-
-    public String getPermission() {
-        return permission;
-    }
-
-    public void setPermission(String permission) {
-        this.permission = permission;
     }
 
     public Role getRole() {
@@ -140,7 +143,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userPassword='" + userPassword + '\'' +
-                ", permission='" + permission + '\'' +
                 ", role=" + role +
                 ", addressId=" + addressId +
                 ", emailAddress='" + emailAddress + '\'' +

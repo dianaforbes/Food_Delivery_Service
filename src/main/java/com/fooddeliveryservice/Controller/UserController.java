@@ -24,14 +24,14 @@ public class UserController {
         String lastName = jsonNewUser.getString("lastName");
         String userName = jsonNewUser.getString("userName");
         String userPassword = jsonNewUser.getString("userPassword");
-        String permission = jsonNewUser.getString("permission");
+        String roleId = jsonNewUser.getString("roleId");
 //        Integer addressId = jsonNewUser.getInt("addressId");
         String emailAddress = jsonNewUser.getString("emailAddress");
         String phoneNumber = jsonNewUser.getString("phoneNumber");
         String lastLogin = jsonNewUser.getString("lastLogin");
         String lastOrder = jsonNewUser.getString("lastOrder");
         if (StringUtils.isBlank(firstName) || StringUtils.isBlank(lastName) || StringUtils.isBlank(userName) ||
-                StringUtils.isBlank(userPassword) || StringUtils.isBlank(permission) ||
+                StringUtils.isBlank(userPassword) || StringUtils.isBlank(roleId) ||
 //                StringUtils.isNoneEmpty(addressId)
                 StringUtils.isBlank(emailAddress) || StringUtils.isBlank(phoneNumber) ||
                 StringUtils.length(lastLogin) != 4 || StringUtils.length(lastOrder) != 4)
@@ -44,7 +44,7 @@ public class UserController {
         userToService.setLastName(lastName);
         userToService.setUserName(userName);
         userToService.setUserPassword(userPassword);
-        userToService.setPermission(permission);
+//        userToService.setRole(roleId);
 //        userToService.setAddressId(addressId);
         userToService.setEmailAddress(emailAddress);
         userToService.setPhoneNumber(phoneNumber);
